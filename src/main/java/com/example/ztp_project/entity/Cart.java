@@ -35,4 +35,14 @@ public class Cart {
     public void setBooks(List<String> books) {
         this.books = books;
     }
+
+    public Cart addBook(String bookId){
+        this.books.add(bookId);
+        return this;
+    }
+
+    public Cart removeBook(String bookId){
+        this.books.remove(bookId);
+        return this;
+    }
 }
