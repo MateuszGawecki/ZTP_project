@@ -3,8 +3,6 @@ package com.example.ztp_project.controller;
 import com.example.ztp_project.entity.Book;
 import com.example.ztp_project.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,20 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 
 @RestController()
 @RequestMapping("/book")
 public class BookController {
-    DateTimeFormatter format = new DateTimeFormatterBuilder()
-            .appendPattern("yyyy")
-            .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
-            .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-            .toFormatter();
 
     private BookRepository bookRepository;
 
@@ -68,7 +57,7 @@ public class BookController {
             return bookRepository.findBookByPublishedBetween(start,end);
         }
 
-        return bookRepository.findAll().delayElements(Duration.ofSeconds(1));
+        return bookRepository.findAll();
     }
 
 }
