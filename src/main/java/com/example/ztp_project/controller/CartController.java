@@ -32,7 +32,7 @@ public class CartController {
     }
 
     @GetMapping()
-    public Flux<Cart> getCart(){
+    public Flux<Cart> getCarts(){
         return cartRepository.findAll();
     }
 
