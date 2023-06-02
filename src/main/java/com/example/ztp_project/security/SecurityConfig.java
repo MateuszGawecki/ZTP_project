@@ -34,7 +34,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http){
-        http.authorizeExchange((exchange) -> exchange
+        http.csrf().disable().cors().and().authorizeExchange((exchange) -> exchange
                         .pathMatchers("/order/**").hasRole("USER")
                         .anyExchange().permitAll()
                 )
