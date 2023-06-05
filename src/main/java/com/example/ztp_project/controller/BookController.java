@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDate;
 
 @RestController()
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class BookController {
 
     private BookRepository bookRepository;

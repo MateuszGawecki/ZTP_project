@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/cart")
+@RequestMapping("/carts")
 public class CartController {
     private CartRepository cartRepository;
     private BookRepository bookRepository;

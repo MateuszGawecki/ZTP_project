@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/order")
+@RequestMapping("/orders")
 public class OrderController {
 
     private OrderRepository orderRepository;
