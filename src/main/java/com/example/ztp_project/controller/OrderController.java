@@ -41,6 +41,8 @@ public class OrderController {
             Order order = new Order(cart1.getBooks());
             return orderRepository.save(order);
         }).subscribe();
+
+        cart.flatMap(cartRepository::delete).subscribe();
     }
 
 
